@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
+import Form from "../components/Form";
+import Contacts from "../components/Contacts";
 
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
-  )
-}
+    <div className="container my-5">
+      <div className="row justify-content-sm-center my-5">
+        <Form />
+      </div>
 
-export default Home
+      <Contacts />
+    </div>
+  );
+};
+
+export default Home;
