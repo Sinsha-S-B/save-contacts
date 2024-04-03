@@ -6,10 +6,12 @@ const Form = () => {
     handleSubmit,
     watch,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSub = (data) => {
-    console.log(data, "dataaaa");
+      console.log(data, "dataaaa");
+      reset()
   };
   return (
     <div className="col-sm-4 shadow rounded g-5">
