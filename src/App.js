@@ -21,15 +21,23 @@ function App() {
     });
     setContacts(newContact);
   };
+  const favToggle =(id)=>{
+    let updatedContact=contacts.map((singleContact)=>{
+      return singleContact.id===id ? {...singleContact,fav:!singleContact.fav}:singleContact
+    })
+    setContacts(updatedContact)
+  }
+
+  console.log(contacts,'contacssss')
   return (
     <Router>
       <Nav />
       <Routes>
         <Route
           path="/"
-          element={<Home formSubB={formSubA} contacts={contacts} deleteContact={deleteContact}/>}
+          element={<Home formSubB={formSubA} contacts={contacts} deleteContact={deleteContact} favToggle={favToggle}/>}
         />
-        <Route path="/favourite" element={<Favourite />} />
+        <Route path="/favourite" element={<Favourite contacts={contacts} deleteContact={deleteContact} favToggle={favToggle}/>} />
         <Route path="/*" element={<Notfound />} />
       </Routes>
     </Router>

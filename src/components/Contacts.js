@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 const Contacts = ({
   contact: { name, phone, email, id, fav },
   deleteContact,
+  favToggle,
 }) => {
   return (
     <>
@@ -11,7 +12,7 @@ const Contacts = ({
           <div className="card-header">
             <div className="row">
               <div className="col-6 ">{name}</div>
-              <div className="col-2 offset-4">
+              <div className="col-2 offset-4" onClick={() => favToggle(id)}>
                 <i
                   className={
                     fav

@@ -2,7 +2,7 @@ import React from "react";
 import Form from "../components/Form";
 import Contacts from "../components/Contacts";
 
-const Home = ({ formSubB, contacts,deleteContact }) => {
+const Home = ({ formSubB, contacts, deleteContact, favToggle }) => {
   // console.log(contacts, "contacts");
 
   return (
@@ -12,8 +12,16 @@ const Home = ({ formSubB, contacts,deleteContact }) => {
       </div>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
         {contacts.map((singleContact) => {
-          return <Contacts key={singleContact.id} contact={singleContact} deleteContact={deleteContact}/>;
+          return (
+            <Contacts
+              key={singleContact.id}
+              contact={singleContact}
+              deleteContact={deleteContact}
+              favToggle={favToggle}
+            />
+          );
         })}
+        {contacts.length === 0 && <div>No contacts found</div>}
       </div>
     </div>
   );
